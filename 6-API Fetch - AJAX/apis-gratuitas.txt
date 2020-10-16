@@ -1,0 +1,17 @@
+
+# Api de datos ficticios. Ejemplos post
+https://jsonplaceholder.typicode.com/
+
+# Api de usuarios ficticios:
+https://randomuser.me/api/
+
+# Generador de nombres
+https://github.com/thm/uinames
+
+
+# Api de eventos
+https://www.eventbrite.es/ 
+
+
+# Modificador de imágenes mediante URL
+https://www.imgix.com

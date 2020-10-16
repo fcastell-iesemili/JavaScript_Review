@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Collections</title>
+		<script type="text/javascript">
+		// Tipus d'objectes
+		/*************************************************/
+			// array
+			let client = ["1", "Josep", "921387979"];
+			
+			// Objecte JSON
+			let clientJSON = { "id":1, 
+							  "nom":"Josep", 
+							  "tel":"921387979"
+							};
+
+			// Objecte Javascript
+			let clientObj = { 
+								id:1, 
+							  	nom:"Josep", 
+							  	tel:"921387979"
+							};
+
+			//Destructuring (ve de phyton)
+			var [idClient, nomClient] = client;
+			console.log("dades client:", idClient, nomClient);
+
+			var {id, nom} =clientObj;
+      		onsole.log("dades client obj:", id, nom);
+
+			// Iterar sobre els noms de les propietats:
+			for (let atribut of Object.keys(clientObj)) {
+			    var valor = clientObj[atribut];
+			    console.log(clientObj, valor);
+			}
+
+			for (const [atribut, valor] of Object.entries(clientObj))
+			    console.log(atribut, valor);
+
+
+			// Array bidimensional
+			let noticiesArray = [
+				[1, "Brexit", "The end of the society..."],
+				[2, "Time", "The climate change..."],
+				[3, "Next generation", "Google is developing new generation..."]
+			];
+
+			// Exemples d'accés amb index i,j
+			//alert(noticiesArray[2][1]); // Resultat: Next generation
+
+			for(var element of noticiesArray){
+				console.log("News:" + element[1]);// mostra el títol de la notícia
+			}
+
+			// Array d'objectes
+			let noticiesObjects =[
+				{"id":1, "title":"Brexit", "description": "The end of the society..."},
+				{"id":2, "title":"Time", "description": "The end of the society..."},
+				{"id":3, "title":"Next Generation", "description": "The end of the society..."},
+			];
+
+			for(element of noticiesObjects){
+				console.log("Noticies object:" + element.title);
+			}
+
+			// Iterar sobre els atributs d'un objecte:
+			var person = {"name":"John", "surname":"Doe", "age":25};
+			for (var atribut in person) {
+				console.log(atribut +":"+person[atribut]);
+			}
+
+			// Definició d'una llista d'objectes tipus MAP (clau, valor)
+			/*************************************************/
+			var noticiesMap = new Map();
+			noticiesMap.set(1,'Brexit');
+			noticiesMap.set(2,'Time');
+			noticiesMap.set(3,'Generation');
+			console.log("títol:" + noticiesMap.get(1));
+			console.log("Existeix clau 1:" + noticiesMap.has(1));
+
+			// Inicialització amb un array
+			var roles = new Map([
+				['r1', 'User'],
+				['r2', 'Guest'],
+				['r3', 'Admin'],
+			]);
+
+			// Formes de llegir un MAP
+			/* a partir de l'array d'entrades que torna el mètode entries()
+			  una entrada és el parell format per [key, value] on value pot ser
+				una cadena de text, un altre array o fins i to un objecte
+			*/
+			for(let rol of roles.entries()){
+				console.log(`${rol[0]}: ${rol[1]}`);
+			}
+
+			// A partir d'un foreach i execució d'una funció callback (inline callback)
+			function mostraDadesRoles(key,value) {
+		  		console.log("Mostrar clau y valor:" + key + "=" + value);
+			}
+			roles.forEach(mostraDadesRoles);
+
+			// Set: llista sense elements repetits
+			/*************************************************/
+			function showRoles(value) {
+			   console.log("Nom rol de la llista tipus set:"+value.name);
+			}
+			var rolesSet = new Set();
+			rolesSet.add({"id":'r1', "name":'User'});
+			rolesSet.add({"id":'r2', "name":'Admin'});
+			rolesSet.add({"id":'r2', "name":'Admin'}); // No te efecte
+			rolesSet.forEach(showRoles);
+
+			// iterar amb iterator:
+			var setNoticies = new Set(noticiesObjects);
+			var iterator = setNoticies.values();
+			console.log(iterator.next());
+			
+
+			// Ordenació (avançat)
+			/*************************************************/
+			// Fent servir la funció sort
+			const listCountry = ["France", "Italy", "Spain"];
+			listCountry.sort();
+			console.log(listCountry);
+
+			// A partir d'una funció compare
+			function compare(a, b) {
+			  // Use toUpperCase() to ignore character casing
+			  const titleA = a.title.toUpperCase();
+			  const titleB = b.title.toUpperCase();
+
+			  let comparison = 0;
+			  if (titleA > titleB) {
+			    comparison = 1;
+			  } else if (titleA < titleB) {
+			    comparison = -1;
+			  }
+			  return comparison;
+			}
+
+			noticiesObjects.sort(compare);
+			console.log("Notícies organitzades:");
+			for(element of noticiesObjects){
+				console.log("	Noticies object:" + element.title);
+			}
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

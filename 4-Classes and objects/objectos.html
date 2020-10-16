@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			const cliente ={
+				nombre: "Juan",
+				saldo: 3000,
+				tipoCliente:function(){
+					let tipo;
+					if (this.saldo > 1000){
+
+					}else if (this.saldi > 500){
+						tipo = "Platinum";
+					} else {
+						tipo ="normal";
+					}
+					return tipo;
+				} 
+			}
+			let bookObj = {
+				"ISBN":"8978768768",
+				"title":"Harry Potter",
+				"release":2010,
+				"sypnosis":"Descripció llibre",
+				"price":30,
+				presentationBook: function() {
+					return "The title of book is " + this.title;
+				}
+			}
+			//
+			console.log("Datos objecto:"+  bookObj.title);
+			console.log("Datos objecto:" + bookObj.presentationBook());
+
+			class Book {
+					constructor(pISBN, pTitle, pRelease, pSynopsis, pPrice){
+						this.ISBN=pISBN;
+						this.title=pTitle;
+						this.release=pRelease;
+						this.sypnosis=pSynopsis;
+						this.price=pPrice;
+					}
+					aplicarOferta(pDescuento){
+						if (pDescuento<this.price){
+							this.price=this.price-pDescuento;
+						}
+					}
+			}
+
+			let altreBook = new Book("897876879","Materia oscura", 2010, "Descripción", 30.8);
+
+			console.log(altreBook.title);
+			altreBook.aplicarOferta(10);
+
+			console.log("Precio con oferta:" + altreBook.price);
+
+			let listaBooks = [
+				altreBook,
+				new Book("897878979","Silencios vivos", 2016, "Descripción", 25.8),
+				new Book("897878345","Invasión a la tierra", 2018, "Descripción", 15.9)
+			];
+
+			for(let b of listaBooks){
+				console.log("datos libro:" + b.title + " precio:" + b.price);
+			}
+
+			//
+			class Manga extends Book{
+				constructor(pISBN, pTitle, pRelease, pSynopsis, pPrice, pVolume){
+					super(pISBN, pTitle, pRelease, pSynopsis, pPrice);
+					this.volume=pVolume;
+				}
+				printData(){
+					console.log(this.title, this.volume);
+				}
+			}
+
+			let mangaDragonBall = new Manga("78969797", "Dragon ball", 2000, "descripción", 40, 2);
+			console.log("Datos manga:" + mangaDragonBall.title);
+
+			mangaDragonBall.aplicarOferta(5);
+			console.log("Oferta manga:" + mangaDragonBall.price);
+			console.log("Datos manga:" + mangaDragonBall.printData());
+
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

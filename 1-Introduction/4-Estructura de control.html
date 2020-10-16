@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+
+			/*-------------------------------------------------------*/
+			// Estructura de control de selecció  (if)
+			/*-------------------------------------------------------*/
+
+			//Exemple 1
+			/*------------------------------------*/
+			const descompte = 10;
+			let totalFactura;
+			let totalCistella = 20;
+			if (totalCistella > 50){
+				totalFactura = totalCistella - descompte;
+			}else{
+				totalFactura = totalCistella;
+			}
+
+			//Exemple 2
+			/*------------------------------------*/
+			let notaExamen = 20;
+			if (notaExamen >6 && notaExamen <9){
+				console.log("Nota final: Notable");
+			}else if (notaExamen >8 && notaExamen <11){
+				console.log("Nota final:  Excel·lent");
+			}else if (notaExamen ==6){
+				console.log("Nota final: bé");
+			}else if (notaExamen == 5 ){
+				console.log("Nota final: Suficient");
+			}else{
+				console.log("Nota incorrecta");
+			}
+
+
+			/*-------------------------------------------------------*/
+			// Estructura de control iteratives (bucle)
+			/*-------------------------------------------------------*/
+
+			for(var i=0; i<10; i++){
+				console.log("Iteració número:" + i);
+			}
+
+			var index=1;
+			while(index<=5){
+				document.write("<p>Client número:" + index +"</p>");
+				index++;
+			}
+
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script type="text/javascript">
+
+    // Creació d'objecte directe
+    let bookObj = {
+      "ISBN": 9788498382662,
+      "title": "Harry Potter",
+      "release":2010,
+      "price":30.5,
+      "synopsis":"Descripció del llibre",
+      presentationBook: function() {
+        return 'The title book is ' + this.title;
+      }
+    }
+
+    console.log("book object:"+bookObj.title);
+    console.log("book object:"+bookObj.presentationBook());
+
+    // Creació d'una classe
+    class Book{
+        constructor(pISBN, pTitle, pRelease, pPrice, pSynopsis){
+          this.ISBN=pISBN;
+          this.title=pTitle;
+          this.release=pRelease;
+          this.price=pPrice;
+          this.synopsis=pSynopsis;
+        }
+
+        presentationBook() {
+          return 'The title book is :' + this.title;
+        }
+
+        static calculateIVA(pPrice){
+          return pPrice * 0.21;
+        }
+
+    }
+
+    // Creació d'objecte des d'una clase
+    let altreBook = new Book(6878, "Silencios vivos", 2019, 30, "Silencios vivos es una invitación a convivir en la intimidad de otro...");
+    console.log("Book:"+ altreBook.presentationBook());
+    console.log("Book:"+ altreBook.price);
+    altreBook.price +=30;
+
+
+      let arrayBooks = [
+        altreBook,
+        new Book(6878, "Invasión a la tierra", 2011, 30, "Descripció del llibre"),
+        new Book(69666, "Mundos paralelos. Dimensiones ocultas", 2014, 30, "Descripció del llibre")
+      ];
+
+      for (let b of arrayBooks) {
+        console.log("Dades llibres:" + b.title + " preu:" + b.price);
+      }
+
+    // Herència en javascript
+    class Manga extends Book{
+      constructor(pISBN, pTitle, pRelease, pPrice, pSynopsis, pVolume){
+        super(pISBN, pTitle, pRelease, pPrice, pSynopsis);
+        this.volume = pVolume;
+      }
+
+      // Els noms de les funcions no poden coincidir amb els paràmetres de les funcions
+      get gVolume() {
+        return this.volume;
+      }
+      set sVolume(value) {
+        this.volume = value;
+      }
+    }
+
+    let mangaDragonBall = new Manga(6878, "Dragon Ball", 1998, 20.5, "Descripció del manga", 2);
+    console.log("manga:"+ mangaDragonBall.gVolume);
+
+  </script>
+
+  <body>
+
+  </body>
+</html>
