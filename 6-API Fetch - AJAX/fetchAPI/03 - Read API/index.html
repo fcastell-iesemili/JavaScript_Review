@@ -101,7 +101,6 @@
         .then(result => result.json())
         .then(data => {
           let content = document.querySelector('#content');
-          content.innerHTML = "";
           for (let user of data.results) {
             content.innerHTML += `
                     <div class="grid-item">
